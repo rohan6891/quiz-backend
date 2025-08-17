@@ -12,6 +12,9 @@ const adminRoutes = require('./routes/adminRoutes');
 const app = express();
 const PORT = process.env.PORT || 5001;
 
+// Enable trust proxy
+app.set('trust proxy', 1); // Trust the first proxy (e.g., Railway's proxy)
+
 // Security middleware
 app.use(helmet({
   contentSecurityPolicy: {
