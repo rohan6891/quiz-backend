@@ -59,6 +59,8 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
+
+console.log(process.env.MONGO_URI);
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('✅ Connected to MongoDB'))
@@ -113,7 +115,8 @@ app.use((err, req, res, next) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(process.env.NODE_ENV);
+  console.log(`📊 Environment: ${process.env.NODE_ENV}`);
 });
 
 module.exports = app;
